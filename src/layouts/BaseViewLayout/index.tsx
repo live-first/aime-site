@@ -1,5 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
+import { Footer } from '../../templates/footer';
+import { Header } from '../../templates/header';
 
 type Props = {
   header?: React.ReactNode
@@ -19,7 +21,7 @@ export const BaseViewLayout = (props: PropsWithChildren<Props>) => {
     <div className='base-view' id='base-view-id'>
       <div className='header-space' />
       <header>
-        {header}
+        {header ?? <Header />}
       </header>
       <main>
         <motion.div
@@ -32,7 +34,7 @@ export const BaseViewLayout = (props: PropsWithChildren<Props>) => {
         </motion.div>
       </main>
       <footer>
-        {footer}
+        {footer ?? <Footer />}
       </footer>
       {semiModal}
     </div>
