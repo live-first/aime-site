@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import { createContext, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { HomeView } from './views/home';
 
 export const AppContext = createContext({});
 
@@ -20,7 +21,7 @@ const Main = () => {
     <AnimatePresence>
       <ScrollToTop />
       <Routes>
-        <Route path='/' element={<></>} />
+        <Route path='/' element={<HomeView />} />
       </Routes>
     </AnimatePresence>
   );

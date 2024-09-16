@@ -3,11 +3,11 @@ import logo from '../../images/logo.png'
 
 export const Header = () => {
   return (
-    <div className='w-full h-[80px] flex justify-between'>
+    <div className='w-full h-16 px-2 flex justify-between'>
       <div className='h-full'>
-        <img src={logo} alt='aiMeロゴ' />
+        <img className='h-full' src={logo} alt='aiMeロゴ' />
       </div>
-      <nav>
+      <nav className='flex gap-2'>
         <Link to='/' className=''>
           <span>HOME</span>
         </Link>
