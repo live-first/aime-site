@@ -12,16 +12,16 @@ export const HomeView = () => {
           <div className='text-5xl font-serif text-[#93d5f4]'>NEWS</div>
         </div>
         <div>
-          <div>ABOUT US</div>
+          <div className='text-5xl font-serif text-[#93d5f4]'>ABOUT US</div>
         </div>
         <div>
-          <div>PHOTOGRAPHY</div>
+          <div className='text-5xl font-serif text-[#93d5f4]'>PHOTOGRAPHY</div>
         </div>
         <div>
-          <div>VIDEO</div>
+          <div className='text-5xl font-serif text-[#93d5f4]'>VIDEO</div>
         </div>
         <div>
-          <div>SCHEDULE</div>
+          <div className='text-5xl font-serif text-[#93d5f4]'>SCHEDULE</div>
         </div>
       </div>
       

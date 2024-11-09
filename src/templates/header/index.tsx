@@ -1,29 +1,45 @@
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.png'
+import xLogo from '../../images/x-logo.png'
+import ytLogo from '../../images/youtube-logo.png'
+import ttLogo from '../../images/tiktok-logo.png'
 
 export const Header = () => {
   return (
-    <div className='w-full h-16 px-4 flex justify-between fixed bg-white z-50'>
-      <div className='h-full'>
-        <img className='h-full' src={logo} alt='aiMeロゴ' />
+    <div className='w-full flex flex-col fixed z-50'>
+      <div className='w-full h-16 px-4 flex justify-between bg-white'>
+        <div className='h-full'>
+          <img className='h-full' src={logo} alt='aiMeロゴ' />
+        </div>
+        <nav className='flex gap-4 items-center'>
+          <Link to='/news' className=''>
+            <span>NEWS</span>
+          </Link>
+          <Link to='/about' className=''>
+            <span>ABOUT</span>
+          </Link>
+          <Link to='/profile' className=''>
+            <span>PROFILE</span>
+          </Link>
+          <Link to='/schedule' className=''>
+            <span>SCHEDULE</span>
+          </Link>
+          <Link to='/contact' className=''>
+            <span>CONTACT</span>
+          </Link>
+        </nav>
       </div>
-      <nav className='flex gap-4 items-center'>
-        <Link to='/news' className=''>
-          <span>NEWS</span>
+      <div className='w-full flex py-1 justify-end px-6 gap-6'>
+        <Link to='https://twitter.com/aime_staff' target='_blank'>
+          <img className='h-6' src={xLogo} alt='x-logo' />
         </Link>
-        <Link to='/about' className=''>
-          <span>ABOUT</span>
+        <Link to='https://www.tiktok.com/@aime_1005' target='_blank'>
+          <img className='h-6' src={ttLogo} alt='tiktok-logo' />
         </Link>
-        <Link to='/profile' className=''>
-          <span>PROFILE</span>
+        <Link to='#' target='_blank'>
+          <img className='h-6' src={ytLogo} alt='youtube-logo' />
         </Link>
-        <Link to='/schedule' className=''>
-          <span>SCHEDULE</span>
-        </Link>
-        <Link to='/contact' className=''>
-          <span>CONTACT</span>
-        </Link>
-      </nav>
+      </div>
     </div>
-  )
-}
+  );
+};
