@@ -10,7 +10,7 @@ import { ContactView } from './views/contact'
 import { NotFoundView } from './views/notFound'
 import { NewsDetailView } from './views/news/newsDetail'
 
-export const AppContext = createContext({});
+export const AppContext = createContext({})
 
 const Main = () => {
 
@@ -38,12 +38,12 @@ const Main = () => {
         <Route path='*' element={<NotFoundView />} />
       </Routes>
     </AnimatePresence>
-  );
+  )
 }
 
 const App = () => {
   return (
     <Main />
-  );
+  )
 }
-export default App;
+export default App

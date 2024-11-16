@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from 'react';
-import { motion } from 'framer-motion';
-import { Footer } from '../../templates/footer';
-import { Header } from '../../templates/header';
+import React, { PropsWithChildren } from 'react'
+import { motion } from 'framer-motion'
+import { Footer } from '../../templates/footer'
+import { Header } from '../../templates/header'
 
 type Props = {
   header?: React.ReactNode
@@ -38,5 +38,5 @@ export const BaseViewLayout = (props: PropsWithChildren<Props>) => {
       </footer>
       {semiModal}
     </div>
-  );
+  )
 }

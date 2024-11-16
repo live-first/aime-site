@@ -41,5 +41,5 @@ export const Header = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
