@@ -1,5 +1,5 @@
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
-import { Link } from 'react-router-dom'
+import { NewsList } from '../../templates/newsList'
 
 export const HomeView = () => {
   return (
@@ -10,6 +10,7 @@ export const HomeView = () => {
       <div className='py-2 px-7 gap-4'>
         <div className=''>
           <div className='text-5xl font-serif text-aime-base'>NEWS</div>
+          <NewsList max={3} />
         </div>
         <div>
           <div className='text-5xl font-serif text-aime-base'>ABOUT US</div>

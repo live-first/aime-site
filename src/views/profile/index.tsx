@@ -1,6 +1,5 @@
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
 import { Container } from '@mui/material'
-import Grid from '@mui/material/Grid2'
 import { Link } from 'react-router-dom'
 import xLogo from '../../images/x-logo.png'
 import ttLogo from '../../images/tiktok-logo.png'
