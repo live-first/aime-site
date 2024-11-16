@@ -8,9 +8,9 @@ export const Header = () => {
   return (
     <div className='w-full flex flex-col fixed z-50'>
       <div className='w-full h-16 px-4 flex justify-between bg-white'>
-        <div className='h-full'>
+        <Link className='h-full' to='/'>
           <img className='h-full' src={logo} alt='aiMeロゴ' />
-        </div>
+        </Link>
         <nav className='flex gap-4 items-center'>
           <Link to='/news' className=''>
             <span>NEWS</span>

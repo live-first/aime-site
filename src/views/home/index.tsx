@@ -9,19 +9,19 @@ export const HomeView = () => {
       </div>
       <div className='py-2 px-7 gap-4'>
         <div className=''>
-          <div className='text-5xl font-serif text-[#93d5f4]'>NEWS</div>
+          <div className='text-5xl font-serif text-aime-base'>NEWS</div>
         </div>
         <div>
-          <div className='text-5xl font-serif text-[#93d5f4]'>ABOUT US</div>
+          <div className='text-5xl font-serif text-aime-base'>ABOUT US</div>
         </div>
         <div>
-          <div className='text-5xl font-serif text-[#93d5f4]'>PHOTOGRAPHY</div>
+          <div className='text-5xl font-serif text-aime-base'>PHOTOGRAPHY</div>
         </div>
         <div>
-          <div className='text-5xl font-serif text-[#93d5f4]'>VIDEO</div>
+          <div className='text-5xl font-serif text-aime-base'>VIDEO</div>
         </div>
         <div>
-          <div className='text-5xl font-serif text-[#93d5f4]'>SCHEDULE</div>
+          <div className='text-5xl font-serif text-aime-base'>SCHEDULE</div>
         </div>
       </div>
       
