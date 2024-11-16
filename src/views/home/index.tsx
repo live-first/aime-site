@@ -18,9 +18,9 @@ export const HomeView = () => {
         <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>PHOTOGRAPHY</div>
         </div>
-        <div className='flex flex-col gap-2'>
+        {/* <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>VIDEO</div>
-        </div>
+        </div> */}
         <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>SCHEDULE</div>
         </div>

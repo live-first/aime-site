@@ -36,8 +36,8 @@ export const NewsDetailView = () => {
               </div>
             );
           })}
-          <div className='news-back-area'>
-            <Link to='/news' className='back'>ニュース一覧</Link>
+          <div className='py-6 text-center'>
+            <Link to='/news' className='px-6 py-3 bg-white border border-cyan-600 rounded-xl'>ニュース一覧</Link>
           </div>
         </Container>
       </BaseViewLayout>
