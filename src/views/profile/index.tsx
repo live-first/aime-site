@@ -10,24 +10,44 @@ type ProfileContentProps = {
   borderColor: string
   textColor: string
   birthday: string
+  place: string
+  blood: string
+  personality: string
+  goodPoint: string
   x?: string
   insta?: string
   tiktok?: string
 }
 
 const ProfileContent = (props: ProfileContentProps) => {
-  const {name, borderColor, textColor, birthday, x, insta, tiktok} = props
+  const {name, borderColor, textColor, birthday, place, blood, personality, goodPoint, x, insta, tiktok} = props
 
   return (
     <>
       <div className={`font-mono text-2xl border-b-2 ${textColor} ${borderColor} mb-2`}>{name}</div>
       <div className='flex flex-col gap-3 px-3'>
         <div className='flex'>
-          <div className='w-[80px]'>誕生日</div>
+          <div className='w-[100px]'>誕生日</div>
           <div>{birthday}</div>
         </div>
         <div className='flex'>
-          <div className='w-[80px]'>SNS</div>
+          <div className='w-[100px]'>出身地</div>
+          <div>{place}</div>
+        </div>
+        <div className='flex'>
+          <div className='w-[100px]'>血液型</div>
+          <div>{blood}</div>
+        </div>
+        <div className='flex'>
+          <div className='w-[100px]'>性格</div>
+          <div>{personality}</div>
+        </div>
+        <div className='flex'>
+          <div className='w-[100px]'>得意なこと/好きなこと</div>
+          <div>{goodPoint}</div>
+        </div>
+        <div className='flex'>
+          <div className='w-[100px]'>SNS</div>
           <div className='flex gap-2'>
             {x && (
               <Link to={x} target='_blank'>
@@ -66,6 +86,10 @@ export const ProfileView = () => {
                   borderColor='border-arisa-pink'
                   textColor='text-arisa-pink'
                   birthday='11月23日'
+                  place='神奈川県'
+                  blood='A型'
+                  personality='マイペース'
+                  goodPoint='お菓子作り、食べること'
                   x='https://twitter.com/arisa_aiMe'
                   insta='https://www.instagram.com/sakura._arisa?igsh=OXc3amZ1cW40MWhp/'
                   tiktok='https://www.tiktok.com/@arisa_aime' />
@@ -78,6 +102,10 @@ export const ProfileView = () => {
                   borderColor='border-shion-red'
                   textColor='text-shion-red'
                   birthday='8月25日'
+                  place='東京都'
+                  blood='O型'
+                  personality='申し訳ないほどに気分屋'
+                  goodPoint='マリカ、ヨガ'
                   x='https://twitter.com/shion_aiMe'
                   insta='https://www.instagram.com/mo___.oo?igsh=MXhhZmZwbTFwYWplZg==/'
                   tiktok='https://www.tiktok.com/@monemonekyun' />
@@ -92,6 +120,10 @@ export const ProfileView = () => {
                   borderColor='border-yuzuki-white'
                   textColor='text-yuzuki-white'
                   birthday='2月4日'
+                  place='千葉県'
+                  blood='O型'
+                  personality='ふわふわ、でも芯は強い'
+                  goodPoint='不器用だけどできるようになるまでがんばること/かわいいキャラや生き物をみること 音楽を聞くこと 美術館にいくこと 美味しいものを食べること'
                   x='https://twitter.com/yuzuki_aiMe'
                   insta=''
                   tiktok='https://www.tiktok.com/@amor__u._.u' />
@@ -104,6 +136,10 @@ export const ProfileView = () => {
                   borderColor='border-sara-blue'
                   textColor='text-sara-blue'
                   birthday='6月15日'
+                  place='東京都'
+                  blood='不明'
+                  personality='元気な心配性'
+                  goodPoint='アイドルさんを推すこと、食べること、寝ること、手を使わずに鼻を凹ますこと'
                   x='https://twitter.com/sara__aiMe'
                   insta='https://www.instagram.com/mizuha_sara?igsh=MXRnMzNmZnF6bmpvZg==/'
                   tiktok='https://www.tiktok.com/@mizuha_sara' />
@@ -118,6 +154,10 @@ export const ProfileView = () => {
                   borderColor='border-yuka-orange'
                   textColor='text-yuka-orange'
                   birthday='12月1日'
+                  place='佐賀県'
+                  blood='B型'
+                  personality='いつもニコニコしてるけど意外と負けず嫌い'
+                  goodPoint='小さい子供のお世話！人の写真を撮ること！バレーボール5年習ってたので得意！アイドルが好き！あとは名探偵コナンとディズニー！'
                   x='https://twitter.com/yuuka_aiMe'
                   insta='https://www.instagram.com/yuukaaaa.__?igsh=MXIxNGN4ZmtiMjluMg==/'
                   tiktok='https://www.tiktok.com/@5n_y_12' />
@@ -130,6 +170,10 @@ export const ProfileView = () => {
                   borderColor='border-nami-purple'
                   textColor='text-nami-purple'
                   birthday='6月27日'
+                  place='神奈川県'
+                  blood='A型'
+                  personality='いつも前向き！楽観的！'
+                  goodPoint='可愛い子を探す・食べること・歌うこと・お芝居・温泉・アイドルの振りコピ・イッテQ・クレヨンしんちゃん'
                   x='https://twitter.com/nami__aiMe'
                   insta='https://www.instagram.com/suzuno_nami?igsh=OTZnNzNkemR6a2Zj/'
                   tiktok='https://www.tiktok.com/@suzuno_nami' />
@@ -144,6 +188,10 @@ export const ProfileView = () => {
                   borderColor='border-aine-yellow'
                   textColor='text-aine-yellow'
                   birthday='8月3日'
+                  place='埼玉県'
+                  blood='AB型'
+                  personality='楽観的 すぐ泣く'
+                  goodPoint='楽器を吹くこと ほっぺを大きく膨らませること 笑顔 / 音楽聞くこと 人と話すこと 美味しいもの食べること ポムポムプリン'
                   x='https://twitter.com/aine__aiMe'
                   insta=''
                   tiktok='https://www.tiktok.com/@aine_aime' />
