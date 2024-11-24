@@ -12,17 +12,18 @@ export const HomeView = () => {
           <div className='text-5xl font-serif text-aime-base'>NEWS</div>
           <NewsList max={3} />
         </div>
-        <div className='flex flex-col gap-2'>
+        {/* <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>ABOUT US</div>
-        </div>
-        <div className='flex flex-col gap-2'>
+        </div> */}
+        {/* <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>PHOTOGRAPHY</div>
-        </div>
+        </div> */}
         {/* <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>VIDEO</div>
         </div> */}
         <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>SCHEDULE</div>
+          <div className='flex flex-col text-center'>〜 作成中 〜</div>
         </div>
       </div>
     </BaseViewLayout>   
