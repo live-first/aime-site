@@ -9,6 +9,8 @@ import { ScheduleView } from './views/schedule'
 import { ContactView } from './views/contact'
 import { NotFoundView } from './views/notFound'
 import { NewsDetailView } from './views/news/newsDetail'
+import { ManagementLoginView } from './views/management/login'
+import { ManagementView } from './views/management'
 
 export const AppContext = createContext({})
 
@@ -35,6 +37,8 @@ const Main = () => {
         <Route path='/profile' element={<ProfileView />} />
         <Route path='/schedule' element={<ScheduleView />} />
         <Route path='/contact' element={<ContactView />} />
+        <Route path='/management/login' element={<ManagementLoginView />} />
+        <Route path='/management/:id' element={<ManagementView />} />
         <Route path='*' element={<NotFoundView />} />
       </Routes>
     </AnimatePresence>

@@ -22,7 +22,7 @@ export const NewsDetailView = () => {
             })}
             {Object.values(newsData.urls).map((url, index) => {
               return (
-                <div className='url-area'>
+                <div className='url-area' key={index}>
                   <div className='url-title'>●{url.title}</div>
                   <Link target='_blank' to={url.url}>{url.url}</Link>
                 </div>
