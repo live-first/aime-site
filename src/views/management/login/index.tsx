@@ -39,7 +39,7 @@ export const ManagementLoginView = () => {
               margin='dense'
               label='メールアドレス'
               autoComplete='current-email'
-              placeholder='wakuwakuticket@example.com'
+              placeholder='member@aime-official.info'
               {...register('email', { 
                 required: 'メールアドレスを入力してください。', 
                 pattern: {

@@ -116,8 +116,17 @@ export const ManagementView = () => {
       </>
     )
   }
+
+  const handleSubmit = () => {
+    localStorage.removeItem('user')
+    navigate('/management/login')
+  }
+
   return (
     <MypageViewLayout>
+      <div className='w-full text-right py-4'>
+        <button className='p-2 bg-slate-400' onClick={handleSubmit}>ログアウト</button>
+      </div>
       <div className='flex flex-col gap-4'>
         {responses && responses.map((data, index) => {
           return (
@@ -132,6 +141,28 @@ export const ManagementView = () => {
                 </div>
               </AccordionSummary>
               <AccordionDetails className='py-4 px-2'>
+                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                  <div className='text-sm w-[100px]'>集合</div>
+                  <div className='text-sm w-[100px] text-right'>{data.all} 枚</div>
+                  <div className='text-sm w-[100px] text-right'>- 円</div>
+                </div>
+                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                  <div className='text-sm w-[100px]'>ランダム</div>
+                  <div className='text-sm w-[100px] text-right'>{data.randam} 枚</div>
+                  <div className='text-sm w-[100px] text-right'>{data.randam !== '' && Number(data.randam) * 500} 円</div>
+                </div>
+                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                  <div className='text-sm w-[100px]'>その他1</div>
+                  <div className='text-sm text-right'>{data.other1}</div>
+                </div>
+                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                  <div className='text-sm w-[100px]'>その他2</div>
+                  <div className='text-sm text-right'>{data.other2}</div>
+                </div>
+                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                  <div className='text-sm w-[100px]'>その他3</div>
+                  <div className='text-sm text-right'>{data.other3}</div>
+                </div>
                 <AccordionDetailView 
                   name='星宮あいね'
                   bgColor='bg-aine-yellow'
@@ -181,23 +212,7 @@ export const ManagementView = () => {
                   cheki2={data.nami2}
                   cheki3={data.nami3}
                 />
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>ランダム</div>
-                  <div className='text-sm w-[100px] text-right'>{data.randam} 枚</div>
-                  <div className='text-sm w-[100px] text-right'>{data.randam !== '' && Number(data.randam) * 500} 円</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>その他1</div>
-                  <div className='text-sm text-right'>{data.other1}</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>その他2</div>
-                  <div className='text-sm text-right'>{data.other2}</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>その他3</div>
-                  <div className='text-sm text-right'>{data.other3}</div>
-                </div>
+                
               </AccordionDetails>
             </Accordion>
           )
