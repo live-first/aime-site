@@ -5,11 +5,12 @@ import ytLogo from '../../images/youtube-logo.png'
 import ttLogo from '../../images/tiktok-logo.png'
 import './index.css'
 import { useState } from 'react'
+import { Grid2 } from '@mui/material'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
   return (
-    <div className='w-full flex flex-col fixed z-50'>
+    <div className='w-full flex flex-col fixed z-50 top-0'>
       <div className='w-full h-14 px-4 flex justify-between bg-white shadow-sm shadow-cyan-500/50'>
         <Link className='h-full' to='/'>
           <img className='h-full' src={logo} alt='aiMeロゴ' />
@@ -48,8 +49,39 @@ export const Header = () => {
           <img className='h-6' src={ytLogo} alt='youtube-logo' />
         </Link>
       </div>
-      <div className={`${open ? 'block' : 'hidden'} absolute min-h-screen min-w-full sp-bg py-8 px-6`}>
-        あああ
+      <div className={`${open ? 'block' : 'hidden'} absolute min-h-screen min-w-full sp-bg pt-16 pb-8 px-10`}>
+        <Grid2 container spacing={8}>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/' className='w-full'>
+              <span>HOME</span>
+            </Link>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/news' className=''>
+              <span>NEWS</span>
+            </Link>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/about' className=''>
+              <span>ABOUT</span>
+            </Link>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/profile' className=''>
+              <span>PROFILE</span>
+            </Link>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/schedule' className=''>
+              <span>SCHEDULE</span>
+            </Link>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/contact' className=''>
+              <span>CONTACT</span>
+            </Link>
+          </Grid2>
+        </Grid2>
       </div>
     </div>
   )

@@ -19,7 +19,7 @@ export const BaseViewLayout = (props: PropsWithChildren<Props>) => {
   
   return (
     <div className='base-view' id='base-view-id'>
-      <div className='header-space' />
+      <div className='h-14' />
       <header>
         {header ?? <Header />}
       </header>
