@@ -357,16 +357,14 @@ const ProfileSpView = () => {
 export const ProfileView = () => {
   return (
     <BaseViewLayout>
-      <div className='w-full py-16 px-8'>
-        <Container maxWidth='lg'>
-          <div className='text-center font-mono text-[48px] py-8'>MEMBER</div>
-          <div className='is-pc-profile'>
-            <ProfilePcView />
-          </div>
-          <div className='is-sp-profile'>
-            <ProfileSpView />
-          </div>
+      <div className='w-full py-16 px-2'>
+        <div className='text-center font-mono text-[48px] py-8'>MEMBER</div>
+        <Container className='is-pc-profile'>
+          <ProfilePcView />
         </Container>
+        <div className='is-sp-profile'>
+          <ProfileSpView />
+        </div>
       </div>
     </BaseViewLayout>)
 }
