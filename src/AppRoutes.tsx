@@ -12,6 +12,8 @@ import { NewsDetailView } from './views/news/newsDetail'
 import { ManagementLoginView } from './views/management/login'
 import { ManagementView } from './views/management'
 import { ToolsView } from './views/tools'
+import { FaqView } from './views/faq'
+import { ShopView } from './views/shop'
 
 export const AppContext = createContext({})
 
@@ -38,6 +40,8 @@ const Main = () => {
         <Route path='/profile' element={<ProfileView />} />
         <Route path='/schedule' element={<ScheduleView />} />
         <Route path='/contact' element={<ContactView />} />
+        <Route path='/faq' element={<FaqView />} />
+        <Route path='/shop' element={<ShopView />} />
         <Route path='/management/login' element={<ManagementLoginView />} />
         <Route path='/management/:id' element={<ManagementView />} />
         <Route path='/tools' element={<ToolsView />} />
