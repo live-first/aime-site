@@ -11,6 +11,7 @@ import { NotFoundView } from './views/notFound'
 import { NewsDetailView } from './views/news/newsDetail'
 import { ManagementLoginView } from './views/management/login'
 import { ManagementView } from './views/management'
+import { ToolsView } from './views/tools'
 
 export const AppContext = createContext({})
 
@@ -30,15 +31,16 @@ const Main = () => {
     <AnimatePresence>
       <ScrollToTop />
       <Routes>
-        {/* <Route path='/' element={<HomeView />} />
+        <Route path='/' element={<HomeView />} />
         <Route path='/news' element={<NewsView />} />
         <Route path='/news/:newsId' element={<NewsDetailView />} />
         <Route path='/about' element={<AboutView />} />
         <Route path='/profile' element={<ProfileView />} />
         <Route path='/schedule' element={<ScheduleView />} />
-        <Route path='/contact' element={<ContactView />} /> */}
+        <Route path='/contact' element={<ContactView />} />
         <Route path='/management/login' element={<ManagementLoginView />} />
         <Route path='/management/:id' element={<ManagementView />} />
+        <Route path='/tools' element={<ToolsView />} />
         <Route path='*' element={<NotFoundView />} />
       </Routes>
     </AnimatePresence>

@@ -37,10 +37,10 @@ export const NewsList = (props: NewsListProps) => {
 
   return (
     <div className='my-3'>
-      <div className='flex flex-col gap-5'>
+      <div className='flex flex-col gap-6'>
         {Object.values(displayedItems).map((data, index) => {
           return (
-            <div className='p-2' key={index}>
+            <div className='p-2 bg-white rounded-lg' key={index}>
               <Link to={`/news/${data.id}`} >
                 <div className=' font-sans font-bold'>{data.date}</div>
                 <div className='pl-2 font-sans'>{data.title}</div>
@@ -51,7 +51,7 @@ export const NewsList = (props: NewsListProps) => {
         }
       </div>
       {isPagination ?
-        <div className='relative h-[50px]'>
+        <div className='relative h-[50px] py-8'>
           <Pagination
             className='absolute left-1/2 -translate-x-1/2'
             count={pageCount < 1 ? 1 : pageCount}

@@ -1,0 +1,14 @@
+.is-pc-profile {
+  @apply flex
+}
+.is-sp-profile {
+  @apply hidden
+}
+@media (max-width: 600px) {
+  .is-pc-profile {
+    @apply hidden
+  }
+  .is-sp-profile {
+    @apply block
+  }
+}

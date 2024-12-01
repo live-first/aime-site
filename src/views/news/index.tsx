@@ -6,10 +6,13 @@ export const NewsView = () => {
   return (
     <BaseViewLayout>
       <div className='w-full py-16 px-8'>
-        <Container maxWidth='lg'>
-          <div className='text-center font-mono text-[48px] py-8'>NEWS</div>
-          <NewsList max={10} isPagination={true} />
+      <div className='text-center font-mono text-[48px] py-8'>NEWS</div>
+        <Container maxWidth='md' className='bg-[#e8e8e8] py-16 rounded-xl'>
+          <Container maxWidth='sm'>
+            <NewsList max={10} isPagination={true} />
+          </Container>
         </Container>
+        
       </div>
     </BaseViewLayout>
   )

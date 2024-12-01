@@ -3,15 +3,18 @@ import logo from '../../images/logo.png'
 import xLogo from '../../images/x-logo.png'
 import ytLogo from '../../images/youtube-logo.png'
 import ttLogo from '../../images/tiktok-logo.png'
+import './index.css'
+import { useState } from 'react'
 
 export const Header = () => {
+  const [open, setOpen] = useState(false)
   return (
     <div className='w-full flex flex-col fixed z-50'>
-      <div className='w-full h-16 px-4 flex justify-between bg-white'>
+      <div className='w-full h-14 px-4 flex justify-between bg-white shadow-sm shadow-cyan-500/50'>
         <Link className='h-full' to='/'>
           <img className='h-full' src={logo} alt='aiMeロゴ' />
         </Link>
-        <nav className='flex gap-4 items-center'>
+        <nav className='is-pc gap-4 items-center'>
           <Link to='/news' className=''>
             <span>NEWS</span>
           </Link>
@@ -28,6 +31,11 @@ export const Header = () => {
             <span>CONTACT</span>
           </Link>
         </nav>
+        <button className={`is-sp hamburger-menu ${open ? 'active' : ''}`} id='menu01' onClick={() => setOpen(!open)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
       <div className='w-full flex py-1 justify-end px-6 gap-6'>
         <Link to='https://twitter.com/aime_staff' target='_blank'>
@@ -39,6 +47,9 @@ export const Header = () => {
         <Link to='#' target='_blank'>
           <img className='h-6' src={ytLogo} alt='youtube-logo' />
         </Link>
+      </div>
+      <div className={`${open ? 'block' : 'hidden'} absolute min-h-screen min-w-full sp-bg py-8 px-6`}>
+        あああ
       </div>
     </div>
   )

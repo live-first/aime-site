@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { MypageViewLayout } from '../../layouts/MypageViewLayout'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Users } from '../../resources/users'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { SlArrowDown } from 'react-icons/sl'
@@ -74,8 +74,10 @@ export const ManagementView = () => {
   }
 
   const user = Users.find(user => localUser && user.id.toString() === localUser.id)
-  user && (
-    fetch(user?.api, {mode: 'cors'})
+  
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    user && fetch(user?.api, {mode: 'cors'})
       .then(response => response.json())
       .then(data => {
         setResponses(data)
@@ -83,7 +85,9 @@ export const ManagementView = () => {
       .catch(error => {
         console.error('リクエストエラー:', error);
       })
-    )
+    }, [user]
+  )
+    
 
   type AccordionProps = {
     name: string
@@ -122,12 +126,17 @@ export const ManagementView = () => {
     navigate('/management/login')
   }
 
+  const getDate = (before: string) => {
+    const beforeDate = new Date(before)
+    return `${beforeDate.getFullYear()} / ${beforeDate.getMonth()+1} / ${beforeDate.getDate()}`
+  }
+
   return (
     <MypageViewLayout>
       <div className='w-full text-right py-4'>
         <button className='p-2 bg-slate-400' onClick={handleSubmit}>ログアウト</button>
       </div>
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-4 mb-5'>
         {responses && responses.map((data, index) => {
           return (
             <Accordion key={index}>
@@ -135,7 +144,7 @@ export const ManagementView = () => {
                 expandIcon={<SlArrowDown />}
               >
                 <div className='flex flex-col'>
-                  <div className='font-bold'>{data.date}</div>
+                  <div className='font-bold'>{getDate(data.date)}</div>
                   <div className='text-sm'>{data.eventName}</div>
                   <div className='text-sm'>{data.place}</div>
                 </div>
