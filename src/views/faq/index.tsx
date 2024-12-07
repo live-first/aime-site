@@ -42,7 +42,7 @@ export const FaqView = () => {
             <Accordion>
               <AccordionSummary
                 expandIcon={<IoMdArrowDown />}
-                style={{backgroundColor: '#d1faff'}}
+                style={{backgroundColor: '#e9fcff'}}
                 className='font-bold'
               >
                 プレゼントを送ることはできますか？
@@ -55,7 +55,7 @@ export const FaqView = () => {
             <Accordion>
               <AccordionSummary
                 expandIcon={<IoMdArrowDown />}
-                style={{backgroundColor: '#d1faff'}}
+                style={{backgroundColor: '#e9fcff'}}
                 className='font-bold'
               >
                 物販はどのようなレギュレーションですか？
