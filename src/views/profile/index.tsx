@@ -49,7 +49,7 @@ const ProfileContent = (props: ProfileContentProps) => {
         </div>
         <div className='flex'>
           <div className='w-[100px]'>SNS</div>
-          <div className='flex gap-2'>
+          <div className='flex gap-4'>
             {x && (
               <Link to={x} target='_blank'>
                 <img className='h-6' src={xLogo} alt='x-logo' />
