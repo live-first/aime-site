@@ -51,7 +51,7 @@ export const CheckoutForm= ({dpmCheckerLink}) => {
   }
 
   return (
-    <>
+    <div className='shop'>
       <form id='payment-form' onSubmit={handleSubmit}>
 
         <PaymentElement id='payment-element' options={paymentElementOptions} />
@@ -70,6 +70,6 @@ export const CheckoutForm= ({dpmCheckerLink}) => {
           <a href={dpmCheckerLink} target='_blank' rel='noopener noreferrer' id='dpm-integration-checker'>Preview payment methods by transaction</a>
         </p>
       </div>
-    </>
+    </div>
   )
 }

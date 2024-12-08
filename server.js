@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 // This is your test secret API key.
-const stripe = require('stripe')('pk_test_51L2xnnFRuEcVJcvhQSsx9Iaf9ZcpHBdbfUmIkpklEzIlOgp6TPU1NoY10A6mzd7j1ti70SCDqTLOLye7onkKOFDl00CiaFmLbt')
+const stripe = require('stripe')(process.env.STRIPE_API_KEY)
 
 app.use(express.static('public'))
 app.use(express.json())

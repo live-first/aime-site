@@ -24,7 +24,7 @@ export const AppContext = createContext({})
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
-const stripePromise = loadStripe('pk_test_51L2xnnFRuEcVJcvhQSsx9Iaf9ZcpHBdbfUmIkpklEzIlOgp6TPU1NoY10A6mzd7j1ti70SCDqTLOLye7onkKOFDl00CiaFmLbt')
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISH_API_KEY!!)
 
 const Main = () => {
   const [clientSecret, setClientSecret] = useState('')
@@ -59,6 +59,8 @@ const Main = () => {
     theme: 'stripe',
   }
 
+  const loader = 'auto'
+
   return (
     <AnimatePresence>
       <ScrollToTop />
@@ -71,21 +73,19 @@ const Main = () => {
         <Route path='/schedule' element={<ScheduleView />} />
         <Route path='/contact' element={<ContactView />} />
         <Route path='/faq' element={<FaqView />} />
-        
+        <Route path='/shop' element={<ShopView />} />
         <Route path='/management/login' element={<ManagementLoginView />} />
         <Route path='/management/:id' element={<ManagementView />} />
         <Route path='/tools' element={<ToolsView />} />
         <Route path='*' element={<NotFoundView />} />
       </Routes>
-      {clientSecret && (
-        <Elements options={{clientSecret, appearance}} stripe={stripePromise}>
-          <Routes>
-            <Route path='/shop' element={<ShopView />} />
-            <Route path='/buy' element={<CheckoutForm dpmCheckerLink={dpmCheckerLink} />} />
-            <Route path='/buy' element={<CompletePage />} />
-          </Routes>
-        </Elements>
-      )}
+      <Elements options={{clientSecret, appearance, loader}} stripe={stripePromise}>
+        <Routes>
+          <Route path='/shop/online' element={<CompletePage />} />
+          <Route path='/shop/online/buy' element={<CheckoutForm dpmCheckerLink={dpmCheckerLink} />} />
+          <Route path='/shop/online/complate' element={<CompletePage />} />
+        </Routes>
+      </Elements>
     </AnimatePresence>
   )
 }

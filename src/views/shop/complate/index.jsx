@@ -74,7 +74,7 @@ export const CompletePage = () => {
   }, [stripe])
 
   return (
-    <div id='payment-status'>
+    <div id='payment-status' className='shop'>
       <div id='status-icon' style={{backgroundColor: STATUS_CONTENT_MAP[status].iconColor}}>
         {STATUS_CONTENT_MAP[status].icon}
       </div>
