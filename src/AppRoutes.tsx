@@ -18,12 +18,10 @@ import { FaqView } from './views/faq'
 import { ShopView } from './views/shop'
 import { CheckoutForm } from './views/shop/buy'
 import { CompletePage } from './views/shop/complate'
+import { OnlineShopView } from './views/shop/online'
 
 export const AppContext = createContext({})
 
-// Make sure to call loadStripe outside of a component’s render to avoid
-// recreating the Stripe object on every render.
-// This is your test publishable API key.
 const stripePromise = loadStripe(process.env.STRIPE_PUBLISH_API_KEY!!)
 
 const Main = () => {
@@ -41,7 +39,7 @@ const Main = () => {
   }
 
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
+  
     fetch('/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -81,7 +79,7 @@ const Main = () => {
       </Routes>
       <Elements options={{clientSecret, appearance, loader}} stripe={stripePromise}>
         <Routes>
-          <Route path='/shop/online' element={<CompletePage />} />
+          <Route path='/shop/online' element={<OnlineShopView />} />
           <Route path='/shop/online/buy' element={<CheckoutForm dpmCheckerLink={dpmCheckerLink} />} />
           <Route path='/shop/online/complate' element={<CompletePage />} />
         </Routes>

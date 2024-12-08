@@ -12,9 +12,11 @@ export const Header = () => {
   return (
     <div className='w-full flex flex-col fixed z-50 top-0'>
       <div className='w-full h-14 px-4 flex justify-between bg-white shadow-sm shadow-cyan-500/50'>
-        <Link className='h-full' to='/'>
-          <img className='h-full' src={logo} alt='aiMeロゴ' />
-        </Link>
+        <h1>
+          <Link className='h-full' to='/'>
+            <img className='h-full' src={logo} alt='aiMeロゴ' />
+          </Link>
+        </h1>
         <nav className='is-pc gap-4 items-center'>
           <Link to='/news' className=''>
             <span>NEWS</span>
