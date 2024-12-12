@@ -27,6 +27,9 @@ export const Header = () => {
           <Link to='/profile' className=''>
             <span>PROFILE</span>
           </Link>
+          <Link to='/shop' className=''>
+            <span>SHOP</span>
+          </Link>
           <Link to='/schedule' className=''>
             <span>SCHEDULE</span>
           </Link>
@@ -71,6 +74,11 @@ export const Header = () => {
           <Grid2 size={{ xs: 12, sm: 6 }}>
             <Link to='/profile' className=''>
               <span>PROFILE</span>
+            </Link>
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <Link to='/shop' className=''>
+              <span>SHOP</span>
             </Link>
           </Grid2>
           <Grid2 size={{ xs: 12, sm: 6 }}>
