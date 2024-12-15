@@ -1,5 +1,6 @@
 import { Alert, Container, Grid2 } from '@mui/material'
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
+import { Link } from 'react-router-dom'
 
 export const ShopView = () => {
   return (
@@ -118,6 +119,10 @@ export const ShopView = () => {
               <div>当日の入場特典は公式Xまたは物販のスタッフにお尋ねください。</div>
             </div>
           </div>
+          
+          <Container maxWidth='sm' className='flex flex-col px-2 py-4 text-center'>
+            <Link to='/shop/online' className='py-4 bg-aime-base rounded'>オンラインショップへ</Link>
+          </Container>
         </Container>
       </div>
     </BaseViewLayout>

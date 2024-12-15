@@ -11,6 +11,7 @@ export const Footer = () => {
           <Link to='/profile' className='whitespace-nowrap'>PROFILE</Link>
           <Link to='/schedule' className='whitespace-nowrap'>SCHEDULE</Link>
           <Link to='/shop' className='whitespace-nowrap'>SHOP</Link>
+          <Link to='/shop/online' className='whitespace-nowrap'>ONLINE SHOP</Link>
           <Link to='/faq' className='whitespace-nowrap'>FAQ</Link>
           <Link to='/contact' className='whitespace-nowrap'>CONTACT</Link>
         </div>

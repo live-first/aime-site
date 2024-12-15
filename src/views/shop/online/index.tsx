@@ -113,6 +113,9 @@ export const OnlineShopView = () => {
               </Grid2>
             </Grid2>
           </div>
+          <Container maxWidth='sm' className='flex flex-col px-2 py-4 text-center'>
+            <Link to='/shop' className='py-4 bg-aime-base rounded'>ショップへ</Link>
+          </Container>
         </Container>
       </div>
     </BaseViewLayout>
