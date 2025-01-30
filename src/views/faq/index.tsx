@@ -62,6 +62,7 @@ export const FaqView = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <img src='https://aime-official.info/static/pictures/shop_20241105.jpeg' alt='aiMeの物販レギュレーション' />
+                <img src='https://aime-official.info/static/pictures/caution1.png' alt='特典会の注意事項' />
               </AccordionDetails>
             </Accordion>
           </div>

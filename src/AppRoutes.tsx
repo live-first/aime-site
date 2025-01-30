@@ -16,6 +16,7 @@ import { FaqView } from './views/faq'
 import { ShopView } from './views/shop'
 import { CompletePage } from './views/shop/complete'
 import { OnlineShopView } from './views/shop/online'
+import { AccountingView } from './views/accounting'
 
 export const AppContext = createContext({})
 
@@ -46,6 +47,7 @@ const Main = () => {
         <Route path='/shop' element={<ShopView />} />
         <Route path='/shop/online' element={<OnlineShopView />} />
         <Route path='/shop/complete' element={<CompletePage />} />
+        <Route path='/accounting' element={<AccountingView />} />
         <Route path='/management/login' element={<ManagementLoginView />} />
         <Route path='/management/:id' element={<ManagementView />} />
         <Route path='/tools' element={<ToolsView />} />

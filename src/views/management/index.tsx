@@ -53,6 +53,7 @@ type OtherType = {
   other1?: string
   other2?: string
   other3?: string
+  target?: string
 }
 
 type ResponseType = {
@@ -171,6 +172,10 @@ export const ManagementView = () => {
                 <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
                   <div className='text-sm w-[100px]'>その他3</div>
                   <div className='text-sm text-right'>{data.other3}</div>
+                </div>
+                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                  <div className='text-sm w-[100px]'>動員</div>
+                  <div className='text-sm text-right'>{data.target}</div>
                 </div>
                 <AccordionDetailView 
                   name='星宮あいね'
