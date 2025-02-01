@@ -50,7 +50,7 @@ export const Header = () => {
         <Link to='https://www.tiktok.com/@aime_1005' target='_blank'>
           <img className='h-6' src={ttLogo} alt='tiktok-logo' />
         </Link>
-        <Link to='#' target='_blank'>
+        <Link to='https://www.youtube.com/@aiMe_2024' target='_blank'>
           <img className='h-6' src={ytLogo} alt='youtube-logo' />
         </Link>
       </div>

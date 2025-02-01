@@ -1,6 +1,7 @@
 import { Container } from '@mui/material'
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
 import { NewsList } from '../../templates/newsList'
+import YouTube from 'react-youtube'
 
 export const HomeView = () => {
   return (
@@ -9,7 +10,7 @@ export const HomeView = () => {
         <img src='https://aime-official.info/static/pictures/aime_official.png' alt='aiMeのアーティスト写真' />
       </div>
       <Container maxWidth='lg' className='flex flex-col gap-12 py-8'>
-          <Container maxWidth='md' className='flex flex-col gap-2 bg-[#f1f1f1]'>
+          <Container maxWidth='md' className='flex flex-col gap-4 bg-[#f1f1f1]'>
             <div className='text-5xl font-serif text-aime-base text-center'>NEWS</div>
             <Container maxWidth='sm'>
               <NewsList max={3} />
@@ -21,12 +22,15 @@ export const HomeView = () => {
         {/* <div className='flex flex-col gap-2'>
           <div className='text-5xl font-serif text-aime-base'>PHOTOGRAPHY</div>
         </div> */}
-        {/* <div className='flex flex-col gap-2'>
-          <div className='text-5xl font-serif text-aime-base'>VIDEO</div>
-        </div> */}
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-4'>
           <div className='text-5xl font-serif text-aime-base text-center'>SCHEDULE</div>
           <div className='flex flex-col text-center'>〜 作成中 〜</div>
+        </div>
+        <div className='flex flex-col gap-4'>
+          <div className='text-5xl font-serif text-aime-base text-center'>VIDEO</div>
+          <div className='flex gap-2 justify-center'>
+            <YouTube videoId='fWHcbiwRpLo' />
+          </div>
         </div>
       </Container>
     </BaseViewLayout>   
