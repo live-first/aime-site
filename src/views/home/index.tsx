@@ -1,9 +1,36 @@
-import { Container } from '@mui/material'
+import { Container, Grid2 } from '@mui/material'
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
 import { NewsList } from '../../templates/newsList'
 import YouTube from 'react-youtube'
+import { useState } from 'react'
+import { EventCard } from '../../templates/eventCard'
+import { Event } from '../../domain/Event'
+import { eventList } from '../../resources/events'
 
 export const HomeView = () => {
+  const [events, setEvents] = useState<Event[]>(eventList)
+  const EntryEvents = () => {
+    return (
+      <Grid2 container spacing={2} style={{margin: '0', width: '100%'}}>
+        {events.length !== 0 ? events.map((event) => {
+          return (
+            <Grid2 size={{ sm: 12, md: 6, lg: 4 }} key={event.eventId}>
+              <EventCard 
+                eventId={event.eventId}
+                title={event.title}
+                date={event.date}
+                openTime={event.openTime}
+                startTime={event.startTime}
+                placeName={event.placeName}
+                imgUrl={event.imgUrl} 
+              />
+            </Grid2>
+          )
+        }) : <>準備中</>}
+      </Grid2>
+    );
+  }
+
   return (
     <BaseViewLayout>
       <div className='w-full'>
@@ -24,7 +51,9 @@ export const HomeView = () => {
         </div> */}
         <div className='flex flex-col gap-4'>
           <div className='text-5xl font-serif text-aime-base text-center'>SCHEDULE</div>
-          <div className='flex flex-col text-center'>〜 作成中 〜</div>
+          <div className='flex flex-col text-center'>
+            <EntryEvents />
+          </div>
         </div>
         <div className='flex flex-col gap-4'>
           <div className='text-5xl font-serif text-aime-base text-center'>VIDEO</div>
