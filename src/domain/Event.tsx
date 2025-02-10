@@ -6,4 +6,10 @@ export type Event = {
   openTime?: string
   startTime?: string
   imgUrl: string[]
+  ticketText?: string
+  ticketUrl: string
+  present?: string
+  other?: string
+  attention?: string
+  eventer?: string
 }

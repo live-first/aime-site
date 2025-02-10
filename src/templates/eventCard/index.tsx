@@ -4,7 +4,7 @@ import './index.scss'
 import { ImageContainer } from '../imageContainer'
 import { Event } from '../../domain/Event'
 
-type EventProps = Event
+type EventProps = Omit<Event, 'ticketText' | 'ticketUrl' | 'present'| 'other' | 'attention' | 'eventer'>
 
 const ResizeFontSize = (text: string) => {
   const textLength = text.length;

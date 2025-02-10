@@ -15,7 +15,7 @@ export const HomeView = () => {
         {events.length !== 0 ? events.map((event) => {
           return (
             <Grid2 size={{ sm: 12, md: 6, lg: 4 }} key={event.eventId}>
-              <EventCard 
+              <EventCard
                 eventId={event.eventId}
                 title={event.title}
                 date={event.date}
@@ -26,7 +26,7 @@ export const HomeView = () => {
               />
             </Grid2>
           )
-        }) : <>準備中</>}
+        }) : <div className='flex flex-col w-full text-center'>準備中</div>}
       </Grid2>
     );
   }
