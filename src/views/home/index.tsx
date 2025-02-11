@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { EventCard } from '../../templates/eventCard'
 import { Event } from '../../domain/Event'
 import { eventList } from '../../resources/events'
+import { YoutubeView } from '../../templates/youtube'
 
 export const HomeView = () => {
   const [events, setEvents] = useState<Event[]>(eventList)
@@ -58,7 +59,7 @@ export const HomeView = () => {
         <div className='flex flex-col gap-4'>
           <div className='text-5xl font-serif text-aime-base text-center'>VIDEO</div>
           <div className='flex gap-2 justify-center'>
-            <YouTube videoId='fWHcbiwRpLo' />
+            <YoutubeView videoId='fWHcbiwRpLo' title='♪ 君想い MOVIE' />
           </div>
         </div>
       </Container>
