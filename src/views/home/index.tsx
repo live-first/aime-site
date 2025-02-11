@@ -1,7 +1,6 @@
 import { Container, Grid2 } from '@mui/material'
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
 import { NewsList } from '../../templates/newsList'
-import YouTube from 'react-youtube'
 import { useState } from 'react'
 import { EventCard } from '../../templates/eventCard'
 import { Event } from '../../domain/Event'
