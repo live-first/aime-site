@@ -1,7 +1,6 @@
 import { useParams  } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Container } from '@mui/material'
-import './ticketInfo.scss'
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
 
 export const TicketInfoView = () => {
