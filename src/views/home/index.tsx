@@ -6,6 +6,7 @@ import { EventCard } from '../../templates/eventCard'
 import { Event } from '../../domain/Event'
 import { eventList } from '../../resources/events'
 import { YoutubeView } from '../../templates/youtube'
+import { Link } from 'react-router-dom'
 
 export const HomeView = () => {
   const [events, setEvents] = useState<Event[]>(eventList)
@@ -59,6 +60,13 @@ export const HomeView = () => {
           <div className='text-5xl font-serif text-aime-base text-center'>VIDEO</div>
           <div className='flex gap-2 justify-center'>
             <YoutubeView videoId='fWHcbiwRpLo' title='♪ 君想い MOVIE' />
+          </div>
+        </div>
+        <div className='flex flex-col gap-4'>
+          <div className='text-5xl font-serif text-aime-base text-center'>OTHER</div>
+          <div className='flex gap-4 justify-center'>
+            <Link to='/shop/online' className='text-center px-3 py-2 bg-slate-200 rounded-md'>オンラインショップ</Link>
+            <Link to='/faq' className='text-center px-3 py-2 bg-slate-200 rounded-md'>よくある質問</Link>
           </div>
         </div>
       </Container>
