@@ -65,6 +65,19 @@ export const FaqView = () => {
                 <img src='https://aime-official.info/static/pictures/caution1.png' alt='特典会の注意事項' />
               </AccordionDetails>
             </Accordion>
+
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<IoMdArrowDown />}
+                style={{backgroundColor: '#e9fcff'}}
+                className='font-bold'
+              >
+                ポイントカードについて教えてください。
+              </AccordionSummary>
+              <AccordionDetails>
+                <img src='https://aime-official.info/static/pictures/point_card.jpeg' alt='ポイントカード運用について' />
+              </AccordionDetails>
+            </Accordion>
           </div>
           
         </Container>
