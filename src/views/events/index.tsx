@@ -1,29 +1,19 @@
-import { useParams  } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { Container } from '@mui/material'
 import { BaseViewLayout } from '../../layouts/BaseViewLayout'
+import { eventList } from '../../resources/events'
+import { NotFoundView } from '../notFound'
 
-export const TicketInfoView = () => {
-  const id = useParams();
-  const [data, setData] = useState<Event>();
-  useEffect (
-    () => {
-      fetch(`http://localhost:8080/event/${id.eventId}`, {mode: 'cors'})
-      .then(response => response.json())
-      .then(event => {
-        setData(event)      
-      })
-      .catch(e => {
-        console.error('リクエストエラー:', e.error);
-      });
-    }, []
-  );
+export const EventDetailView = () => {
+  const id = useParams()
+  const eventIndex = eventList.findIndex((event) => event.eventId === Number(id))
+  const eventData = eventList[eventIndex]
 
-  return (
+  return eventData ? (
     <BaseViewLayout>
-      <Container maxWidth='md'>
-      
-      </Container>
+      <Container maxWidth='sm'></Container>
     </BaseViewLayout>
-  )  
+  ) : (
+    <NotFoundView />
+  )
 }

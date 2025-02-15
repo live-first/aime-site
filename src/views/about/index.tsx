@@ -4,9 +4,9 @@ import { BaseViewLayout } from '../../layouts/BaseViewLayout'
 export const AboutView = () => {
   return (
     <BaseViewLayout>
-      <div className='w-full py-16 px-8'>
+      <div className='w-full px-8 py-16'>
         <Container maxWidth='lg'>
-        <div className='text-center font-mono text-[48px] py-8'>ABOUT</div>
+          <div className='py-8 text-center font-mono text-[48px]'>ABOUT</div>
           <img src='https://aime-official.info/static/pictures/aime_official2.jpeg' alt='aiMe' />
         </Container>
       </div>

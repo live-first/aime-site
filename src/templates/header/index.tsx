@@ -10,14 +10,14 @@ import { Grid2 } from '@mui/material'
 export const Header = () => {
   const [open, setOpen] = useState(false)
   return (
-    <div className='w-full flex flex-col fixed z-50 top-0'>
-      <div className='w-full h-14 px-4 flex justify-between bg-white shadow-sm shadow-cyan-500/50'>
+    <div className='fixed top-0 z-50 flex w-full flex-col'>
+      <div className='flex h-14 w-full justify-between bg-white px-4 shadow-sm shadow-cyan-500/50'>
         <h1>
           <Link className='h-full' to='/'>
             <img className='h-full' src={logo} alt='aiMeロゴ' />
           </Link>
         </h1>
-        <nav className='is-pc gap-4 items-center'>
+        <nav className='is-pc items-center gap-4'>
           <Link to='/news' className=''>
             <span>NEWS</span>
           </Link>
@@ -37,13 +37,17 @@ export const Header = () => {
             <span>CONTACT</span>
           </Link>
         </nav>
-        <button className={`is-sp hamburger-menu ${open ? 'active' : ''}`} id='menu01' onClick={() => setOpen(!open)}>
+        <button
+          className={`is-sp hamburger-menu ${open ? 'active' : ''}`}
+          id='menu01'
+          onClick={() => setOpen(!open)}
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
       </div>
-      <div className='w-full flex py-1 justify-end px-6 gap-6'>
+      <div className='flex w-full justify-end gap-6 px-6 py-1'>
         <Link to='https://twitter.com/aime_staff' target='_blank'>
           <img className='h-6' src={xLogo} alt='x-logo' />
         </Link>
@@ -54,7 +58,9 @@ export const Header = () => {
           <img className='h-6' src={ytLogo} alt='youtube-logo' />
         </Link>
       </div>
-      <div className={`${open ? 'block' : 'hidden'} absolute min-h-screen min-w-full sp-bg pt-16 pb-8 px-10`}>
+      <div
+        className={`${open ? 'block' : 'hidden'} sp-bg absolute min-h-screen min-w-full px-10 pb-8 pt-16`}
+      >
         <Grid2 container spacing={8}>
           <Grid2 size={{ xs: 12, sm: 6 }}>
             <Link to='/' className='w-full'>

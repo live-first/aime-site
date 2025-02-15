@@ -7,11 +7,11 @@ type YoutubeProp = {
 }
 
 export const YoutubeView = (props: YoutubeProp) => {
-  const {videoId, title} = props;
+  const { videoId, title } = props
   return (
     <div className='youtube-view'>
       <div className='youtube-title'>{title}</div>
       <Youtube videoId={videoId} className='video-area' />
     </div>
-  );
+  )
 }

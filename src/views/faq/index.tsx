@@ -5,17 +5,17 @@ import { IoMdArrowDown } from 'react-icons/io'
 export const FaqView = () => {
   return (
     <BaseViewLayout>
-      <div className='w-full py-16 px-2'>
+      <div className='w-full px-2 py-16'>
         <Container maxWidth='md'>
-          <div className='text-center font-mono text-[48px] py-8'>FAQ</div>
+          <div className='py-8 text-center font-mono text-[48px]'>FAQ</div>
           <div className='flex flex-col gap-8'>
             <Accordion>
               <AccordionSummary
                 expandIcon={<IoMdArrowDown />}
-                style={{backgroundColor: '#e9fcff'}}
+                style={{ backgroundColor: '#e9fcff' }}
                 className='font-bold'
               >
-                  プレゼントを渡すことはできますか？
+                プレゼントを渡すことはできますか？
               </AccordionSummary>
               <AccordionDetails>
                 <div className='flex flex-col gap-8'>
@@ -42,7 +42,7 @@ export const FaqView = () => {
             <Accordion>
               <AccordionSummary
                 expandIcon={<IoMdArrowDown />}
-                style={{backgroundColor: '#e9fcff'}}
+                style={{ backgroundColor: '#e9fcff' }}
                 className='font-bold'
               >
                 プレゼントを送ることはできますか？
@@ -55,34 +55,41 @@ export const FaqView = () => {
             <Accordion>
               <AccordionSummary
                 expandIcon={<IoMdArrowDown />}
-                style={{backgroundColor: '#e9fcff'}}
+                style={{ backgroundColor: '#e9fcff' }}
                 className='font-bold'
               >
                 物販はどのようなレギュレーションですか？
               </AccordionSummary>
               <AccordionDetails>
-                <img src='https://aime-official.info/static/pictures/shop_20241105.jpeg' alt='aiMeの物販レギュレーション' />
-                <img src='https://aime-official.info/static/pictures/caution1.png' alt='特典会の注意事項' />
+                <img
+                  src='https://aime-official.info/static/pictures/shop_20241105.jpeg'
+                  alt='aiMeの物販レギュレーション'
+                />
+                <img
+                  src='https://aime-official.info/static/pictures/caution1.png'
+                  alt='特典会の注意事項'
+                />
               </AccordionDetails>
             </Accordion>
 
             <Accordion>
               <AccordionSummary
                 expandIcon={<IoMdArrowDown />}
-                style={{backgroundColor: '#e9fcff'}}
+                style={{ backgroundColor: '#e9fcff' }}
                 className='font-bold'
               >
                 ポイントカードについて教えてください。
               </AccordionSummary>
               <AccordionDetails>
-                <img src='https://aime-official.info/static/pictures/point_card.jpeg' alt='ポイントカード運用について' />
+                <img
+                  src='https://aime-official.info/static/pictures/point_card.jpeg'
+                  alt='ポイントカード運用について'
+                />
               </AccordionDetails>
             </Accordion>
           </div>
-          
         </Container>
-        
       </div>
     </BaseViewLayout>
   )
-} 
+}

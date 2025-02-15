@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import {
-  PaymentElement,
-  useStripe,
-  useElements
-} from '@stripe/react-stripe-js'
+import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import '../index.scss'
 
-export const CheckoutForm= ({dpmCheckerLink}) => {
+export const CheckoutForm = ({ dpmCheckerLink }) => {
   const stripe = useStripe()
   const elements = useElements()
 
@@ -47,13 +43,12 @@ export const CheckoutForm= ({dpmCheckerLink}) => {
   }
 
   const paymentElementOptions = {
-    layout: 'accordion'
+    layout: 'accordion',
   }
 
   return (
     <div className='shop'>
       <form id='payment-form' onSubmit={handleSubmit}>
-
         <PaymentElement id='payment-element' options={paymentElementOptions} />
         <button disabled={isLoading || !stripe || !elements} id='submit'>
           <span id='button-text'>
@@ -66,8 +61,16 @@ export const CheckoutForm= ({dpmCheckerLink}) => {
       {/* [DEV]: Display dynamic payment methods annotation and integration checker */}
       <div id='dpm-annotation'>
         <p>
-          Payment methods are dynamically displayed based on customer location, order amount, and currency.&nbsp
-          <a href={dpmCheckerLink} target='_blank' rel='noopener noreferrer' id='dpm-integration-checker'>Preview payment methods by transaction</a>
+          Payment methods are dynamically displayed based on customer location, order amount, and
+          currency.&nbsp
+          <a
+            href={dpmCheckerLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            id='dpm-integration-checker'
+          >
+            Preview payment methods by transaction
+          </a>
         </p>
       </div>
     </div>

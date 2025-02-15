@@ -1,4 +1,3 @@
-
 import Stripe from 'stripe'
 
 export const handler = async (req, res) => {
@@ -11,13 +10,15 @@ export const handler = async (req, res) => {
   })
   const products = await stripe.products.list()
   if (!products.data || products.data.length < 1) {
-     return res.status(200).json([])
+    return res.status(200).json([])
   }
-  await Promise.all(products.data.map(async (product, i) => {
-    const prices = await stripe.prices.list({
-      product: product.id,
-    })
-    products.data[i].prices = prices
-  }))
+  await Promise.all(
+    products.data.map(async (product, i) => {
+      const prices = await stripe.prices.list({
+        product: product.id,
+      })
+      products.data[i].prices = prices
+    }),
+  )
   res.status(200).json(products)
 }

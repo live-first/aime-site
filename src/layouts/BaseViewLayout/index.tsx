@@ -10,19 +10,17 @@ type Props = {
 }
 
 export const BaseViewLayout = (props: PropsWithChildren<Props>) => {
-  const {header, footer, semiModal, children} = props
+  const { header, footer, semiModal, children } = props
 
   const pageTransition = {
     duration: 1,
-    opacity: { ease: 'easeOut', duration: 1 }
-  };
-  
+    opacity: { ease: 'easeOut', duration: 1 },
+  }
+
   return (
     <div className='base-view' id='base-view-id'>
       <div className='h-14' />
-      <header>
-        {header ?? <Header />}
-      </header>
+      <header>{header ?? <Header />}</header>
       <main>
         <motion.div
           initial={{ opacity: 0 }}
@@ -30,12 +28,10 @@ export const BaseViewLayout = (props: PropsWithChildren<Props>) => {
           exit={{ opacity: 0 }}
           transition={pageTransition}
         >
-        {children}
+          {children}
         </motion.div>
       </main>
-      <footer>
-        {footer ?? <Footer />}
-      </footer>
+      <footer>{footer ?? <Footer />}</footer>
       {semiModal}
     </div>
   )

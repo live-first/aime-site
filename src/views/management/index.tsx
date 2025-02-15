@@ -61,34 +61,40 @@ type ResponseType = {
   eventName: string
   date: string
   place: string
-} & AineType & SaraType & ShionType & YuzukiType & ArisaType & YuukaType & NamiType & OtherType
+} & AineType &
+  SaraType &
+  ShionType &
+  YuzukiType &
+  ArisaType &
+  YuukaType &
+  NamiType &
+  OtherType
 
 export const ManagementView = () => {
   const navigate = useNavigate()
   const id = useParams()
   const localUser = JSON.parse(localStorage.getItem('user') as string)
   const [responses, setResponses] = useState<ResponseType[]>()
-  
+
   if (localUser && localUser.id !== id.id) {
     navigate('/management/login')
     return <></>
   }
 
-  const user = Users.find(user => localUser && user.id.toString() === localUser.id)
-  
+  const user = Users.find((user) => localUser && user.id.toString() === localUser.id)
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    user && fetch(user?.api, {mode: 'cors'})
-      .then(response => response.json())
-      .then(data => {
-        setResponses(data)
-      })
-      .catch(error => {
-        console.error('リクエストエラー:', error);
-      })
-    }, [user]
-  )
-    
+    user &&
+      fetch(user?.api, { mode: 'cors' })
+        .then((response) => response.json())
+        .then((data) => {
+          setResponses(data)
+        })
+        .catch((error) => {
+          console.error('リクエストエラー:', error)
+        })
+  }, [user])
 
   type AccordionProps = {
     name: string
@@ -104,19 +110,25 @@ export const ManagementView = () => {
       <>
         <div className={`text-sm ${bgColor}`}>{name}</div>
         <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-          <div className='text-sm w-[100px]'>サインなし</div>
-          <div className='text-sm w-[100px] text-right'>{cheki1} 枚</div>
-          <div className='text-sm w-[100px] text-right'>{cheki1 !== '' && Number(cheki1) * 1000} 円</div>
+          <div className='w-[100px] text-sm'>サインなし</div>
+          <div className='w-[100px] text-right text-sm'>{cheki1} 枚</div>
+          <div className='w-[100px] text-right text-sm'>
+            {cheki1 !== '' && Number(cheki1) * 1000} 円
+          </div>
         </div>
         <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-          <div className='text-sm w-[100px]'>らくがき</div>
-          <div className='text-sm w-[100px] text-right'>{cheki2} 枚</div>
-          <div className='text-sm w-[100px] text-right'>{cheki2 !== '' && Number(cheki2) * 2000} 円</div>
+          <div className='w-[100px] text-sm'>らくがき</div>
+          <div className='w-[100px] text-right text-sm'>{cheki2} 枚</div>
+          <div className='w-[100px] text-right text-sm'>
+            {cheki2 !== '' && Number(cheki2) * 2000} 円
+          </div>
         </div>
         <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-          <div className='text-sm w-[100px]'>宿題</div>
-          <div className='text-sm w-[100px] text-right'>{cheki3} 枚</div>
-          <div className='text-sm w-[100px] text-right'>{cheki3 !== '' && Number(cheki3) * 3000} 円</div>
+          <div className='w-[100px] text-sm'>宿題</div>
+          <div className='w-[100px] text-right text-sm'>{cheki3} 枚</div>
+          <div className='w-[100px] text-right text-sm'>
+            {cheki3 !== '' && Number(cheki3) * 3000} 円
+          </div>
         </div>
       </>
     )
@@ -129,108 +141,110 @@ export const ManagementView = () => {
 
   const getDate = (before: string) => {
     const beforeDate = new Date(before)
-    return `${beforeDate.getFullYear()} / ${beforeDate.getMonth()+1} / ${beforeDate.getDate()}`
+    return `${beforeDate.getFullYear()} / ${beforeDate.getMonth() + 1} / ${beforeDate.getDate()}`
   }
 
   return (
     <MypageViewLayout>
-      <div className='w-full text-right py-4'>
-        <button className='p-2 bg-slate-400' onClick={handleSubmit}>ログアウト</button>
+      <div className='w-full py-4 text-right'>
+        <button className='bg-slate-400 p-2' onClick={handleSubmit}>
+          ログアウト
+        </button>
       </div>
-      <div className='flex flex-col gap-4 mb-5'>
-        {responses && responses.map((data, index) => {
-          return (
-            <Accordion key={index}>
-              <AccordionSummary
-                expandIcon={<SlArrowDown />}
-              >
-                <div className='flex flex-col'>
-                  <div className='font-bold'>{getDate(data.date)}</div>
-                  <div className='text-sm'>{data.eventName}</div>
-                  <div className='text-sm'>{data.place}</div>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails className='py-4 px-2'>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>集合</div>
-                  <div className='text-sm w-[100px] text-right'>{data.all} 枚</div>
-                  <div className='text-sm w-[100px] text-right'>- 円</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>ランダム</div>
-                  <div className='text-sm w-[100px] text-right'>{data.randam} 枚</div>
-                  <div className='text-sm w-[100px] text-right'>{data.randam !== '' && Number(data.randam) * 500} 円</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>その他1</div>
-                  <div className='text-sm text-right'>{data.other1}</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>その他2</div>
-                  <div className='text-sm text-right'>{data.other2}</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>その他3</div>
-                  <div className='text-sm text-right'>{data.other3}</div>
-                </div>
-                <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
-                  <div className='text-sm w-[100px]'>動員</div>
-                  <div className='text-sm text-right'>{data.target}</div>
-                </div>
-                <AccordionDetailView 
-                  name='星宮あいね'
-                  bgColor='bg-aine-yellow'
-                  cheki1={data.aine1}
-                  cheki2={data.aine2}
-                  cheki3={data.aine3}
-                />
-                <AccordionDetailView 
-                  name='水羽さら'
-                  bgColor='bg-sara-blue'
-                  cheki1={data.sara1}
-                  cheki2={data.sara2}
-                  cheki3={data.sara3}
-                />
-                <AccordionDetailView 
-                  name='桜夢ありさ'
-                  bgColor='bg-arisa-pink'
-                  cheki1={data.arisa1}
-                  cheki2={data.arisa2}
-                  cheki3={data.arisa3}
-                />
-                <AccordionDetailView 
-                  name='夏井しおん'
-                  bgColor='bg-shion-red'
-                  cheki1={data.shion1}
-                  cheki2={data.shion2}
-                  cheki3={data.shion3}
-                />
-                <AccordionDetailView 
-                  name='成瀬ゆづき'
-                  bgColor='bg-[#f0f0f0]'
-                  cheki1={data.yuzuki1}
-                  cheki2={data.yuzuki2}
-                  cheki3={data.yuzuki3}
-                />
-                <AccordionDetailView 
-                  name='愛月ゆうか'
-                  bgColor='bg-yuka-orange'
-                  cheki1={data.yuuka1}
-                  cheki2={data.yuuka2}
-                  cheki3={data.yuuka3}
-                />
-                <AccordionDetailView 
-                  name='鈴乃なみ'
-                  bgColor='bg-nami-purple'
-                  cheki1={data.nami1}
-                  cheki2={data.nami2}
-                  cheki3={data.nami3}
-                />
-                
-              </AccordionDetails>
-            </Accordion>
-          )
-        })}
+      <div className='mb-5 flex flex-col gap-4'>
+        {responses &&
+          responses.map((data, index) => {
+            return (
+              <Accordion key={index}>
+                <AccordionSummary expandIcon={<SlArrowDown />}>
+                  <div className='flex flex-col'>
+                    <div className='font-bold'>{getDate(data.date)}</div>
+                    <div className='text-sm'>{data.eventName}</div>
+                    <div className='text-sm'>{data.place}</div>
+                  </div>
+                </AccordionSummary>
+                <AccordionDetails className='px-2 py-4'>
+                  <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                    <div className='w-[100px] text-sm'>集合</div>
+                    <div className='w-[100px] text-right text-sm'>{data.all} 枚</div>
+                    <div className='w-[100px] text-right text-sm'>- 円</div>
+                  </div>
+                  <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                    <div className='w-[100px] text-sm'>ランダム</div>
+                    <div className='w-[100px] text-right text-sm'>{data.randam} 枚</div>
+                    <div className='w-[100px] text-right text-sm'>
+                      {data.randam !== '' && Number(data.randam) * 500} 円
+                    </div>
+                  </div>
+                  <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                    <div className='w-[100px] text-sm'>その他1</div>
+                    <div className='text-right text-sm'>{data.other1}</div>
+                  </div>
+                  <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                    <div className='w-[100px] text-sm'>その他2</div>
+                    <div className='text-right text-sm'>{data.other2}</div>
+                  </div>
+                  <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                    <div className='w-[100px] text-sm'>その他3</div>
+                    <div className='text-right text-sm'>{data.other3}</div>
+                  </div>
+                  <div className='flex gap-6 border-b-[0.5px] border-gray-400'>
+                    <div className='w-[100px] text-sm'>動員</div>
+                    <div className='text-right text-sm'>{data.target}</div>
+                  </div>
+                  <AccordionDetailView
+                    name='星宮あいね'
+                    bgColor='bg-aine-yellow'
+                    cheki1={data.aine1}
+                    cheki2={data.aine2}
+                    cheki3={data.aine3}
+                  />
+                  <AccordionDetailView
+                    name='水羽さら'
+                    bgColor='bg-sara-blue'
+                    cheki1={data.sara1}
+                    cheki2={data.sara2}
+                    cheki3={data.sara3}
+                  />
+                  <AccordionDetailView
+                    name='桜夢ありさ'
+                    bgColor='bg-arisa-pink'
+                    cheki1={data.arisa1}
+                    cheki2={data.arisa2}
+                    cheki3={data.arisa3}
+                  />
+                  <AccordionDetailView
+                    name='夏井しおん'
+                    bgColor='bg-shion-red'
+                    cheki1={data.shion1}
+                    cheki2={data.shion2}
+                    cheki3={data.shion3}
+                  />
+                  <AccordionDetailView
+                    name='成瀬ゆづき'
+                    bgColor='bg-[#f0f0f0]'
+                    cheki1={data.yuzuki1}
+                    cheki2={data.yuzuki2}
+                    cheki3={data.yuzuki3}
+                  />
+                  <AccordionDetailView
+                    name='愛月ゆうか'
+                    bgColor='bg-yuka-orange'
+                    cheki1={data.yuuka1}
+                    cheki2={data.yuuka2}
+                    cheki3={data.yuuka3}
+                  />
+                  <AccordionDetailView
+                    name='鈴乃なみ'
+                    bgColor='bg-nami-purple'
+                    cheki1={data.nami1}
+                    cheki2={data.nami2}
+                    cheki3={data.nami3}
+                  />
+                </AccordionDetails>
+              </Accordion>
+            )
+          })}
       </div>
     </MypageViewLayout>
   )

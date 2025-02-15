@@ -16,7 +16,7 @@ type GoodsCardProps = {
 const GoodsCard = (props: GoodsCardProps) => {
   const { image, title, description, price, href } = props
   return (
-    <div className='flex flex-col gap-2 p-4 border-[#2945c1] border-2 rounded-lg'>
+    <div className='flex flex-col gap-2 rounded-lg border-2 border-[#2945c1] p-4'>
       <div>
         <img src={image} alt={title} />
       </div>
@@ -24,19 +24,20 @@ const GoodsCard = (props: GoodsCardProps) => {
         <div className='font-sans text-lg font-bold'>{title}</div>
         <div className=''>¥{price} / 1点</div>
         <div className=''>{description}</div>
-        <Link target='_blank' className='w-full text-center py-2 bg-aime-base rounded-md' to={href}>購入する</Link>
+        <Link target='_blank' className='w-full rounded-md bg-aime-base py-2 text-center' to={href}>
+          購入する
+        </Link>
       </div>
     </div>
   )
 }
 
 export const OnlineShopView = () => {
-
   return (
     <BaseViewLayout>
-      <div className='w-full py-16 px-2'>
+      <div className='w-full px-2 py-16'>
         <Container maxWidth='lg'>
-          <div className='text-center font-mono text-[48px] py-8'>ONLINE SHOP</div>
+          <div className='py-8 text-center font-mono text-[48px]'>ONLINE SHOP</div>
           <div className='pb-6'>
             <Grid2 container spacing={4}>
               <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
@@ -105,7 +106,9 @@ export const OnlineShopView = () => {
             </Grid2>
           </div>
           <Container maxWidth='sm' className='flex flex-col px-2 py-4 text-center'>
-            <Link to='/shop' className='py-4 bg-aime-base rounded'>ショップへ</Link>
+            <Link to='/shop' className='rounded bg-aime-base py-4'>
+              ショップへ
+            </Link>
           </Container>
         </Container>
       </div>

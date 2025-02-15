@@ -17,15 +17,14 @@ import { ShopView } from './views/shop'
 import { CompletePage } from './views/shop/complete'
 import { OnlineShopView } from './views/shop/online'
 import { AccountingView } from './views/accounting'
-import { TicketInfoView } from './views/events'
+import { EventDetailView } from './views/events'
 
 export const AppContext = createContext({})
 
 const Main = () => {
-
   const ScrollToTop = () => {
     const { pathname } = useLocation()
-  
+
     useEffect(() => {
       window.scrollTo(0, 0)
     }, [pathname])
@@ -43,7 +42,7 @@ const Main = () => {
         <Route path='/about' element={<AboutView />} />
         <Route path='/profile' element={<ProfileView />} />
         <Route path='/schedule' element={<ScheduleView />} />
-        <Route path='/event/:eventId' element={<TicketInfoView />} />
+        <Route path='/event/:eventId' element={<EventDetailView />} />
         <Route path='/contact' element={<ContactView />} />
         <Route path='/faq' element={<FaqView />} />
         <Route path='/shop' element={<ShopView />} />
@@ -60,8 +59,6 @@ const Main = () => {
 }
 
 const App = () => {
-  return (
-    <Main />
-  )
+  return <Main />
 }
 export default App

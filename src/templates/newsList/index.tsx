@@ -15,11 +15,11 @@ type NewsProps = {
   date: string
   title: string
   context: string[]
-  img : string[]
+  img: string[]
 }
 
 export const NewsList = (props: NewsListProps) => {
-  const {max, isPagination} = props
+  const { max, isPagination } = props
   const maxContent = max ? max : 10
   const pageCount = Math.ceil(newsData.length / maxContent)
   const [page, setPage] = useState(1)
@@ -27,12 +27,12 @@ export const NewsList = (props: NewsListProps) => {
 
   useEffect(() => {
     //表示データを抽出
-    setDisplayedItems(newsData.slice(((page - 1) * maxContent), page * maxContent))
+    setDisplayedItems(newsData.slice((page - 1) * maxContent, page * maxContent))
   }, [])
 
   const handleChange = (index: number) => {
     setPage(index)
-    setDisplayedItems(newsData.slice(((index - 1) * maxContent), index * maxContent))
+    setDisplayedItems(newsData.slice((index - 1) * maxContent, index * maxContent))
   }
 
   return (
@@ -40,32 +40,32 @@ export const NewsList = (props: NewsListProps) => {
       <div className='flex flex-col gap-6'>
         {Object.values(displayedItems).map((data, index) => {
           return (
-            <div className='p-2 bg-white rounded-lg' key={index}>
-              <Link to={`/news/${data.id}`} >
-                <div className=' font-sans font-bold'>{data.date}</div>
+            <div className='rounded-lg bg-white p-2' key={index}>
+              <Link to={`/news/${data.id}`}>
+                <div className='font-sans font-bold'>{data.date}</div>
                 <div className='pl-2 font-sans'>{data.title}</div>
               </Link>
             </div>
-            );
-          })
-        }
+          )
+        })}
       </div>
-      {isPagination ?
+      {isPagination ? (
         <div className='relative h-[50px] py-8'>
           <Pagination
             className='absolute left-1/2 -translate-x-1/2'
             count={pageCount < 1 ? 1 : pageCount}
-            onChange={() => {handleChange(page)}}
+            onChange={() => {
+              handleChange(page)
+            }}
             page={page}
             renderItem={(item) => (
-              <PaginationItem
-                slots={{ previous: HiArrowLeft, next: HiArrowRight }}
-                {...item}
-              />
+              <PaginationItem slots={{ previous: HiArrowLeft, next: HiArrowRight }} {...item} />
             )}
           />
-        </div> : <></>
-      }
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }
